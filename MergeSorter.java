@@ -12,30 +12,30 @@ public class MergeSorter {
 	
 	public static void merge(int[] list, int lo, int mid, int hi) {
 		
-		int[] helper = new int[list.length];
+		int[] array = new int[list.length];
 		for (int i = lo; i <= hi; i++) {
-			helper[i] = list[i];
+			array[i] = list[i];
 		}
 		
-		int helperLeft = lo;
-		int helperRight = mid+1;
+		int arrayLeft = lo;
+		int arrayRight = mid+1;
 		int current = lo;
 		
-		while (helperLeft <= mid && helperRight <=hi) {
-			if(helper[helperLeft] <= helper[helperRight]){
-				list[current] = helper[helperLeft];
-				helperLeft++;
+		while (arrayLeft <= mid && arrayRight <=hi) {
+			if(array[arrayLeft] <= array[arrayRight]){
+				list[current] = array[arrayLeft];
+				arrayLeft++;
 				
 			}else{
-				list[current] = helper[helperRight];
-				helperRight++;
+				list[current] = array[arrayRight];
+				arrayRight++;
 			}
 			current ++;		
 		}
 		
-		int remaining = mid - helperLeft;
+		int remaining = mid - arrayLeft;
 		for (int i = 0; i <= remaining; i++) {
-			list[current+i] = helper[helperLeft+ i];
+			list[current+i] = array[arrayLeft+ i];
 		}
 	}
 	}
